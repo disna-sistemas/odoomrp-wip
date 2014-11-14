@@ -28,8 +28,9 @@ class SaleOrderLine(models.Model):
         id2 = self.env.ref(
             'sale_order_last_prices.last_sale_product_prices_view')
         sale_lines = self.search(
-            [('order_id', '!=', self.id),
-             ('product_id', '=', self.product_id.id)],
+            [('order_id', '!=', self.order_id.id),
+             ('product_id', '=', self.product_id.id),
+             ('order_partner_id', '=', self.order_partner_id.id)],
             order='create_date DESC')
         return {
             'view_type': 'tree',
