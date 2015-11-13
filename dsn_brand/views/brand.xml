@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="brand_form_view">
+            <field name="name">brand.form</field>
+            <field name="model">brand</field>
+            <field name="arch" type="xml">
+                <form string="Brands">
+                    <group>
+                        <field name="name" required="True">Name</field>
+                        <field name="parent">Parent</field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="brand_tree_view">
+            <field name="name">brand.tree</field>
+            <field name="model">brand</field>
+            <field name="arch" type="xml">
+                <tree string="Brands">
+                    <field name="name">Name</field>
+                    <field name="name">Parent</field>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_brands" model="ir.actions.act_window">
+            <field name="name">Brands</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">brand</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="brand_form_view"/>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a brand
+              </p>
+            </field>
+        </record>
+
+        <menuitem name="Brands"
+                  id="dsn_brand.menu_brand_brand"
+                  parent="base.menu_sales"
+                  action="action_brands"
+                  sequence="10"/>
+
+    </data>
+</openerp>

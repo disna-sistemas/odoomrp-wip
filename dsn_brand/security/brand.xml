@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data noupdate="1">
+        <record model="ir.module.category" id="dsn_brand_category">
+            <field name="name">Brand</field>
+            <field name="description">Security category for brand model</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="user" model="res.groups">
+            <field name="name">Brand User</field>
+            <field name="category_id" ref="dsn_brand_category" />
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="manager" model="res.groups">
+            <field name="name">Brand Manager</field>
+            <field name="category_id" ref="dsn_brand_category" />
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+    </data>
+</openerp>
